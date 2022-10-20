@@ -1,0 +1,1 @@
+const solution = (num,k) => num.toString().includes(k) ? num.toString().indexOf(k)+1 : -1
