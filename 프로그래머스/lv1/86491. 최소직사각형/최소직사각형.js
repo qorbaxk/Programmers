@@ -1,10 +1,6 @@
 const solution = (sizes) => {
-    let arr1 = [];
-    let arr2 = [];
     sizes = sizes.map(x=>x.sort((a,b)=>a-b));
-    for(let i=0; i<sizes.length; i++){
-        arr1.push(sizes[i][0])
-        arr2.push(sizes[i][1])
-    }
+    let arr1 = sizes.map(v=>v.filter((v,i)=>i===0)).flat();
+    let arr2 = sizes.map(v=>v.filter((v,i)=>i===1)).flat();
     return Math.max(...arr1)*Math.max(...arr2);
 }
