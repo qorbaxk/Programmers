@@ -1,9 +1,14 @@
-const solution = (denum1, num1, denum2, num2) => {
+function solution(numer1, denom1, numer2, denom2) {
+    let getGCD = (num1,num2)=>{
+        return num2>0?getGCD(num2,num1%num2):num1
+    }
     
-    let getGCD = (a, b) => (b > 0 ? getGCD(b, a % b) : a);
-    let denum = denum1*num2+denum2*num1;
-    let num = num1*num2;
-    let gcd = getGCD(denum,num);
+    let getLCM = (denom1*denom2) / getGCD(denom1,denom2)
     
-    return [denum/gcd, num/gcd];
+    let firstNum = numer1*parseInt(getLCM/denom1)+numer2*parseInt(getLCM/denom2)
+    let secondNum = getLCM
+    let answerGCD = getGCD(firstNum,secondNum)
+    
+    let answer = [parseInt(firstNum/answerGCD), parseInt(secondNum/answerGCD)];
+    return answer;
 }
