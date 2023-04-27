@@ -1,4 +1,4 @@
-const solution = (my_string) => {
-    let regex = new RegExp('[aeiou]','g')
-    return my_string.replace(regex,'');
+function solution(my_string) {
+    const moum = ['a','e','i','o','u']
+    return [...my_string].filter(v=>!moum.includes(v)).join('')
 }
