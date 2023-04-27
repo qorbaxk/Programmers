@@ -1,4 +1,4 @@
-const solution = (array) => {
-    array = array.sort((a,b)=>a-b);
-    return array[(array.length-1)/2];
+function solution(array) {
+    array.sort((a,b)=>a-b)
+    return array[Math.floor(array.length/2)]
 }
