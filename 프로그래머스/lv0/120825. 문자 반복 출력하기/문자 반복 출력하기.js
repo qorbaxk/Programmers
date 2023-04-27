@@ -1,4 +1,3 @@
-const solution = (my_string,n) => {
-    let arr = [...my_string];
-    return arr.map(x=>x.repeat(n)).join('');
+function solution(my_string, n) {
+    return [...my_string].map(v=>v.repeat(n)).join('')
 }
