@@ -1,1 +1,3 @@
-const solution = (numbers) => numbers.map(x=> x*2)
+function solution(numbers) {
+    return numbers.map((x)=>x*2)
+}
