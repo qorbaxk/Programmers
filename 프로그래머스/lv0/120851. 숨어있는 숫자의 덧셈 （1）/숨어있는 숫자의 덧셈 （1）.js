@@ -1,5 +1,4 @@
 function solution(my_string) {
-    regex = new RegExp('[^0-9]', 'g')
-    let newArr = my_string.replace(regex,'').split('')
+    let newArr = my_string.replace(/[^0-9]/g,'').split('')
     return newArr.reduce((a,b)=>a + +b,0)
 }
