@@ -1,7 +1,9 @@
-const solution = (n) => {
-    let num = [];
-    for(i=1; i<=n; i++){
-        n%i == 0 ? num.push(i) : null; 
+function solution(n) {
+    let count = 0;
+    for(let i=1; i<=n; i++){
+        if(n%i===0){
+            count ++
+        }
     }
-    return num.length;
+    return count
 }
