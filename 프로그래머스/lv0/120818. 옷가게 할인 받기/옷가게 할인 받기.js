@@ -1,1 +1,3 @@
-const solution = (price) => price >= 500000 ? parseInt(0.8*price) : price >= 300000 ? parseInt(0.9*price) : price >= 100000 ? parseInt(0.95*price) : price;
+function solution(price) {
+    return price>=500000?parseInt(price*0.8):price>=300000?parseInt(price*0.9):price>=100000?parseInt(price*0.95):price
+}
