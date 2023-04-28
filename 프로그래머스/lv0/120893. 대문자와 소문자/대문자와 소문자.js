@@ -1,4 +1,3 @@
-const solution = (my_string) => {
-
-    return [...my_string].map(x=>x===x.toUpperCase()?x.toLowerCase():x.toUpperCase()).join('')
+function solution(my_string) {
+    return [...my_string].map(v=>v===v.toUpperCase()?v.toLowerCase():v.toUpperCase()).join('')
 }
