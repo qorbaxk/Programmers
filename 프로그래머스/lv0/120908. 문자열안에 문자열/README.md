@@ -4,7 +4,7 @@
 
 ### 성능 요약
 
-메모리: 33.5 MB, 시간: 0.03 ms
+메모리: 33.6 MB, 시간: 0.03 ms
 
 ### 구분
 
@@ -12,7 +12,7 @@
 
 ### 채점결과
 
-<br/>정확성: 100.0<br/>합계: 100.0 / 100.0
+Empty
 
 ### 문제 설명
 
@@ -25,6 +25,7 @@
 <ul>
 <li>1 ≤ <code>str1</code>의 길이 ≤ 100</li>
 <li>1 ≤ <code>str2</code>의 길이 ≤ 100</li>
+<li>문자열은 알파벳 대문자, 소문자, 숫자로 구성되어 있습니다.</li>
 </ul>
 
 <hr>
@@ -33,7 +34,7 @@
 <table class="table">
         <thead><tr>
 <th>str1</th>
-<th>str1</th>
+<th>str2</th>
 <th>result</th>
 </tr>
 </thead>
@@ -45,6 +46,11 @@
 <tr>
 <td>"ppprrrogrammers"</td>
 <td>"pppp"</td>
+<td>2</td>
+</tr>
+<tr>
+<td>"AbcAbcA"</td>
+<td>"AAA"</td>
 <td>2</td>
 </tr>
 </tbody>
@@ -63,6 +69,12 @@
 
 <ul>
 <li>"ppprrrogrammers" <code>str1</code>에 <code>str2</code>가 없으므로 2를 return합니다.</li>
+</ul>
+
+<p>입출력 예 #3</p>
+
+<ul>
+<li>"AbcAbcA" <code>str1</code>에 <code>str2</code>가 없으므로 2를 return합니다.</li>
 </ul>
 
 
