@@ -1,7 +1,3 @@
-const solution = (cipher, code) => {
-    let result = '';
-    for(i=(code-1); i<cipher.length; i+=code){
-        result += cipher[i];
-    }
-    return result;
+function solution(cipher, code) {
+    return [...cipher].filter((v,i)=>(i+1)%code===0).join('')
 }
