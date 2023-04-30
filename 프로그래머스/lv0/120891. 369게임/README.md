@@ -1,10 +1,10 @@
 # [level 0] 369게임 - 120891 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/120891) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/120891?language=javascript) 
 
 ### 성능 요약
 
-메모리: 33.6 MB, 시간: 0.06 ms
+메모리: 33.4 MB, 시간: 0.05 ms
 
 ### 구분
 
@@ -12,7 +12,7 @@
 
 ### 채점결과
 
-<br/>정확성: 100.0<br/>합계: 100.0 / 100.0
+Empty
 
 ### 문제 설명
 
@@ -60,6 +60,10 @@
 <ul>
 <li>29423은 3이 1개, 9가 1개 있으므로 2를 출력합니다.</li>
 </ul>
+
+<hr>
+
+<p>※ 공지 - 2023년 03월 24일 테스트 케이스가 추가되었습니다. 기존에 제출한 코드가 통과하지 못할 수도 있습니다.</p>
 
 
 > 출처: 프로그래머스 코딩 테스트 연습, https://programmers.co.kr/learn/challenges
