@@ -1,5 +1,3 @@
-const solution = (my_string) => {
-    my_string = [...my_string];
-    const set = new Set(my_string);
-    return [...set].join('');
+function solution(my_string) {
+    return [...my_string].filter((e,i,a)=>a.indexOf(e)==i).join('')
 }
