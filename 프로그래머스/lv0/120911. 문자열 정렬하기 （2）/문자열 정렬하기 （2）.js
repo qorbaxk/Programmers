@@ -1,2 +1,6 @@
-const solution = (my_string) => [...my_string.toLowerCase()].sort().join('');
+function solution(my_string) {
+    let str = my_string.toLowerCase().split('')
+    str.sort()
+    return str.join('')
     
+}
