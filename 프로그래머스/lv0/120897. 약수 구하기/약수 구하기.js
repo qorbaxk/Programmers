@@ -1,7 +1,9 @@
-const solution = (n) => {
-    let arr = [];
-    for(i=1; i<=n; i++){
-        n%i == 0 ? arr.push(i) : null; 
+function solution(n) {
+    let result = []
+    for(let i=1; i<=n; i++){
+        if(n%i===0){
+            result.push(i)    
+        }
     }
-    return arr;
+    return result
 }
