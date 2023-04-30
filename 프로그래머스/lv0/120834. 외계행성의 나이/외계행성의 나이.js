@@ -1,5 +1,7 @@
-const solution = (age) => {
-    const Alphabet = new Array(26).fill().map((_, i) => String.fromCharCode(i + 97)).join("");
-    age = age.toString().split('');
-    return age.map(x=>Alphabet[x]).join('');
+function solution(age) {
+    let alphabet = []
+    for(let i=97; i<=122; i++){
+        alphabet.push(String.fromCharCode(i))
+    }
+    return String(age).split('').map(v=>alphabet[v]).join('')
 }
