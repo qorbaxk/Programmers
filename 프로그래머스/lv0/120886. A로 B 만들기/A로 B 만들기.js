@@ -1,5 +1,8 @@
-const solution = (before, after) => {
-    return [...before].sort().join('') === [...after].sort().join('') ? 1: 0
-    
+function solution(before, after) {
+    before = [...before]
+    after = [...after]
+    before.sort()
+    after.sort()
+    return before.join('')===after.join('')?1:0
     
 }
