@@ -1,11 +1,9 @@
-const solution = (n) => {
-    let result = 1;
-    let i;
-    for(i=2; i<=10; i++){
-        result *= i;
-        if(result > n){
-            break;
-        }
-    } 
-         return i-1;
+function solution(n) {
+    let fac = 1
+    for(let i=1; i<=n; i++){
+        fac*=i    
+        if(fac===n) return i
+        if(fac>n) return i-1
+    }
+ 
 }
