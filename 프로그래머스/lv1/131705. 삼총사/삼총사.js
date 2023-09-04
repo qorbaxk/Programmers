@@ -1,13 +1,15 @@
-const solution = (number) => {
-    let result = 0;
+function solution(number) {
+    let answer = 0;
     for(let i=0; i<number.length; i++){
         for(let j=i+1; j<number.length; j++){
-            for(let k=j+1; k<number.length; k++){
-                if(number[i]+number[j]+number[k]===0){
-                    result++;
+         
+            let part1 = number[i]+number[j]
+            for (let k=j+1; k<number.length; k++){
+                if(part1+number[k]===0){
+                    answer++
                 }
             }
         }
     }
-    return result;
+    return answer
 }
