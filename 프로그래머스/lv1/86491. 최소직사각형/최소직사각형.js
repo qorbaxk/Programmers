@@ -1,6 +1,11 @@
-const solution = (sizes) => {
-    sizes = sizes.map(x=>x.sort((a,b)=>a-b));
-    let arr1 = sizes.map(v=>v.filter((v,i)=>i===0)).flat();
-    let arr2 = sizes.map(v=>v.filter((v,i)=>i===1)).flat();
-    return Math.max(...arr1)*Math.max(...arr2);
+function solution(sizes) {
+    let min = []
+    let max = []
+    sizes.forEach((size)=>{
+        max.push(Math.max(...size))
+        min.push(Math.min(...size))
+    })
+    
+    return Math.max(...min)*Math.max(...max)
+    
 }
