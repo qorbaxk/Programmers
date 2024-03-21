@@ -1,8 +1,10 @@
 function solution(phone_book) {
-    let map = new Map()
-    phone_book.forEach((book)=>map.set(book,''))
+    // let map = new Map()
+    let map = new Set()
+    // phone_book.forEach((book)=>map.set(book,''))
+    phone_book.forEach((book)=>map.add(book,''))
     
-    for(let [key,value] of map){
+    for(let key of map){
         for(let i=1; i<key.length; i++){
             let start = key.slice(0,i)
             
@@ -13,3 +15,4 @@ function solution(phone_book) {
     return true
 
 }
+
