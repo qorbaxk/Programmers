@@ -1,84 +1,36 @@
-// function solution(genres, plays) {
-//     let map = new Map()
-//     genres.forEach((key,idx)=>{
-       
-//         if(map.has(key)){
-//             const prev = map.get(key)
-//             let obj = {
-//                 [idx]:plays[idx]
-//             }
-//             map.set(key,{...prev, ...obj})
-            
-//         }else{
-            
-//             let obj = {
-//                 [idx]:plays[idx]
-//             }
-//             map.set(key, obj)
-//         }
-//     })
-    
-//     let map2 = new Map()
-    
-//     for(let [key,value] of map){
-        
-//         const keys = Object.entries(value).sort((a,b)=>b[1]-a[1]).slice(0,2)
-//         let list = [Number(keys[0][0]),Number(keys[1][0])]
-//         const values = Object.values(value).reduce((a,b)=>(a+b),0)
-//         map2.set(list,Number(values))
-//     }
-    
-//     let result = new Map([...map2].sort((a, b) => a[1] - b[1]).reverse());
-    
-//     let real_result = []
-//     for (let [key,value] of result){
-//         real_result.push(...key)
-//     }
-        
-//     return real_result
-// }
-
 function solution(genres, plays) {
-    const genreMap = new Map();
+    /** 조건 
+    0. 장르 별로 많이 재생된 노래 2개씩을 모은다.
+    1. 속한 노래가 많이 재생된 장르를 먼저 수록합니다.
+    2. 장르 내에서 많이 재생된 노래를 먼저 수록합니다.
+    3. 장르 내에서 재생 횟수가 같은 노래 중에서는 고유 번호가 낮은 노래를 먼저 수록합니다.
+    */
+    const map = new Map()
     
-    // Step 1: 각 장르별로 노래 정보를 묶어서 저장
-    for (let i = 0; i < genres.length; i++) {
-        const genre = genres[i];
-        const playCount = plays[i];
-        
-        if (!genreMap.has(genre)) {
-            genreMap.set(genre, []);
+    // 1. 장르를 key로 하여 [재생횟수, 고유번호] 형태로 저장
+    for(let i=0; i<genres.length; i++){
+        if(map.has(genres[i])){
+            map.set(genres[i], [...map.get(genres[i]), [plays[i],i]])
+        }else{
+            map.set(genres[i],[[plays[i],i]])
         }
-        
-        genreMap.get(genre).push({ index: i, playCount });
     }
     
-    // Step 2: 장르별로 총 재생 횟수 계산
-    const totalPlayCounts = new Map();
-    for (const [genre, songs] of genreMap) {
-        const totalPlayCount = songs.reduce((acc, cur) => acc + cur.playCount, 0);
-        totalPlayCounts.set(genre, totalPlayCount);
-    }
+    const playMap = new Map()
     
-    // Step 3: 장르별 총 재생 횟수에 따라 장르를 정렬
-    const sortedGenres = Array.from(totalPlayCounts.keys()).sort((a, b) => totalPlayCounts.get(b) - totalPlayCounts.get(a));
+    // 2. 각 장르별로 재생횟수를 알아야하기 때문에 key값을 재생횟수로 변환
+    map.forEach((value, key)=>{
+        const newKey = value.reduce((a,b)=>a+b[0],0)
+        playMap.set(newKey, value)
+    })
     
-    // Step 4: 각 장르 내에서 노래들을 정렬하고, 상위 두 곡 선택
-    const result = [];
-    for (const genre of sortedGenres) {
-        const songs = genreMap.get(genre);
-        songs.sort((a, b) => {
-            if (a.playCount !== b.playCount) {
-                return b.playCount - a.playCount;
-            } else {
-                return a.index - b.index; // 인덱스가 작은 순서대로 정렬
-            }
-        });
-        
-        // 상위 두 곡 선택
-        const selectedSongs = songs.slice(0, 2).map(song => song.index);
-        result.push(...selectedSongs);
-    }
+    // 3. 각 장르별로 재생횟수가 많은 순대로 정렬하고 2개 빼고 나머지는 제거함
+    playMap.forEach((value, key)=>{
+        playMap.set(key, value.sort((a,b)=>b[0]-a[0]).slice(0,2))
+    })
     
-    return result;
+    // 4. 재생횟수의 합이 큰 순서대로 내림차순 정렬하여 배열 생성
+    const result = [...playMap.entries()].sort((a,b)=>Number(b[0]) - Number(a[0])).flatMap(([_, values])=>values.map((v)=>v[1]))
+    
+    return result    
 }
