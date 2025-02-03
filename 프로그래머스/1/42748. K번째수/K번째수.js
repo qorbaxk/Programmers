@@ -1,17 +1,13 @@
 function solution(array, commands) {
-    let answer = []
-    const sorted = (arr, com)=>{
-        let i = com[0]
-        let j = com[1]
-        let k = com[2]
-        let newArr = arr.slice(i-1,j)
-        newArr.sort((fir,sec)=>fir>sec?1:-1)
-        return newArr[k-1]
-    }
-    
-    for(let command of commands){
-        answer.push(sorted(array, command))
-    }
-    
-    return answer
+  return commands.map((command)=>{
+      /**
+        1. i ~ j 번째 까지 자르기
+        2. 오름차순으로 정렬
+        3. k 번째에 있는 수로 리턴
+      */
+      const [i,j,k] = command     
+      const newArray = array.slice(i-1,j)
+      const sortedArr = newArray.sort((a,b)=>a-b)
+      return sortedArr[k-1]
+  })
 }
